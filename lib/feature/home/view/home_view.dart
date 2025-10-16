@@ -18,18 +18,19 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: fetchWeather),
+    
+      /// denemek icin fetchWeaher kullandim burada seervis kullancan  bunu
       body: Column(
         children: [
           /******Deniz ASSET KULLANMAN ICIN ORNEK BIRAKTIM BURADA SENDEN 
            * SERVISTEN GELEN VERI ILE BIR TANE CARD YA DA LIST TILE CANIN NE ISTERSE BIR TASARIM YAP */
 
           /// ORNEK ASSETS KULLANIMI
-          // ListTile(
-          //   leading: Assets.images.a01n.image(
-          //     package: 'gen', // <-- ŞART
-          //   ),
-          // ),
+          ListTile(
+            leading: Assets.images.a01n.image(
+              package: 'gen', // <-- ŞART
+            ),
+          ),
         ],
       ),
     );

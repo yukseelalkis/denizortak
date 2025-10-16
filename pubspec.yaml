@@ -12,7 +12,8 @@ dependencies:
 
   cupertino_icons: ^1.0.8
   dio: ^5.9.0
-  
+  intl: ^0.20.2
+
   gen:
     path: module/gen
 

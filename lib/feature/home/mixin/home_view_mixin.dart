@@ -5,6 +5,11 @@ import 'package:weather_app/product/service/manager/service_weather_manager.dart
 mixin HomeViewMixin on State<HomeView> {
   final ServiceWeatherManager serviceWeatherManager =
       ServiceWeatherManager.instance;
+  @override
+  void initState() {
+    super.initState();
+    fetchWeather();
+  }
 
   Future<void> fetchWeather() {
     return serviceWeatherManager.fetchWeather('Hatay');
