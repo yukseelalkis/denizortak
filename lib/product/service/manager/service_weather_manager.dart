@@ -29,7 +29,7 @@ final class ServiceWeatherManager {
       '$city&appid=${AppEnvironmentItems.apiKey.value}',
     );
     if (response.statusCode == HttpStatus.ok) {
-      print(response.data);
+
       return (response.data);
     }
   }
