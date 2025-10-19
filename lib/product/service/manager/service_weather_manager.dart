@@ -35,8 +35,6 @@ final class ServiceWeatherManager {
       if (response.statusCode == HttpStatus.ok) {
         return WeatherModel.fromJson(response.data);
       }
-    } catch (e) {
-      
-    }
+    } catch (e) {}
   }
 }
