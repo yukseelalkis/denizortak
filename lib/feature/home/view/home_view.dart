@@ -21,6 +21,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
       body: Column(
         children: [
           /// deniz  kardesimsin
+          /// //Yuksel kardesimsin
           Card(
             margin: EdgeInsets.all(20),
             child: ListTile(
