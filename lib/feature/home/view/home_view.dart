@@ -18,17 +18,30 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    
-      /// denemek icin fetchWeaher kullandim burada seervis kullancan  bunu
       body: Column(
         children: [
-          /******Deniz ASSET KULLANMAN ICIN ORNEK BIRAKTIM BURADA SENDEN 
-           * SERVISTEN GELEN VERI ILE BIR TANE CARD YA DA LIST TILE CANIN NE ISTERSE BIR TASARIM YAP */
-
-          /// ORNEK ASSETS KULLANIMI
-          ListTile(
-            leading: Assets.images.a01n.image(
-              package: 'gen', // <-- ŞART
+          Card(
+            margin: EdgeInsets.all(20),
+            child: ListTile(
+              leading: Assets.images.a02d.image(
+                package: 'gen',
+                width: 50,
+                height: 50,
+              ),
+              title: Text('Hava Durumu Açık'),
+              subtitle: Text('Hatay / 20°C'),
+            ),
+          ),
+          Card(
+            margin: EdgeInsets.all(20),
+            child: ListTile(
+              leading: Assets.images.a03d.image(
+                package: 'gen',
+                width: 50,
+                height: 50,
+              ),
+              title: Text('Hava Durumu Bulutlu'),
+              subtitle: Text('Gaziantep / 17°C'),
             ),
           ),
         ],
@@ -36,5 +49,3 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
     );
   }
 }
-
-// asset kullanmak icin  ornek
