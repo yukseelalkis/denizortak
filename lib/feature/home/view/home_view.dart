@@ -20,6 +20,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
     return Scaffold(
       body: Column(
         children: [
+          /// deniz  kardesimsin
           Card(
             margin: EdgeInsets.all(20),
             child: ListTile(

@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:gen/gen.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/product/init/config/app_enviroment.dart';
 
@@ -25,35 +27,16 @@ final class ServiceWeatherManager {
   static ServiceWeatherManager instance = ServiceWeatherManager._();
 
   // daha iyisine bakilacak
-  Future<void> fetchWeather(String city) async {
+  Future<WeatherModel?> fetchWeather(String city) async {
     final response = await _dio.get(
       '$city&appid=${AppEnvironmentItems.apiKey.value}',
     );
-    if (response.statusCode == HttpStatus.ok) {
-      final data = response.data;
-
-      final temp = data['main']['temp'] - 273.15;
-      final minTemp = data['main']['temp_min'] - 273.15;
-      final maxTemp = data['main']['temp_max'] - 273.15;
-      final sunrise = DateTime.fromMillisecondsSinceEpoch(
-        data['sys']['sunrise'] * 1000,
-      );
-      final sunset = DateTime.fromMillisecondsSinceEpoch(
-        data['sys']['sunset'] * 1000,
-      );
-      final icon = data['weather'][0]['icon'];
-      final desc = data['weather'][0]['description'];
-      final name = data['name'];
-
-      print('Şehir: $name');
-      print('Durum: $desc');
-      print('Sıcaklık: ${temp.toStringAsFixed(1)}°C');
-      print(
-        'Min: ${minTemp.toStringAsFixed(1)}°C, Max: ${maxTemp.toStringAsFixed(1)}°C',
-      );
-      print('Gündoğumu: ${DateFormat.Hm().format(sunrise)}');
-      print('Günbatımı: ${DateFormat.Hm().format(sunset)}');
-      print('İkon: $icon');
+    try {
+      if (response.statusCode == HttpStatus.ok) {
+        return WeatherModel.fromJson(response.data);
+      }
+    } catch (e) {
+      
     }
   }
 }
