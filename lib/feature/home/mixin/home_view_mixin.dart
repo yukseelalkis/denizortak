@@ -20,25 +20,26 @@ mixin HomeViewMixin on State<HomeView> {
   }
 
   Future<void> fetchWeather() async {
-    final result = await serviceWeatherManager.fetchWeather('Bodrum');
+    final reponse = await serviceWeatherManager.fetchWeather('Bodrum');
 
     if (!mounted) return;
-
+    // Sorulacak bir yer
     setState(() {
-      weatherModel = result; // Field'ı güncelliyoruz
+      weatherModel = reponse;
     });
 
-    if (result != null) {
-      final temp = result.main?.temp;
-      final desc = result.weather?.first.description;
-      final icon = result.weather?.first.icon;
-      final city = result.name;
+    if (reponse != null) {
+      final temp = reponse.main?.temp;
+      final desc = reponse.weather?.first.description;
+      final icon = reponse.weather?.first.icon;
+      final city = reponse.name;
 
       debugPrint('Şehir: $city');
       debugPrint('Durum: $desc');
       debugPrint('Sıcaklık: ${temp?.toStringAsFixed(1)} °C');
       debugPrint('İkon kodu: $icon');
     } else {
+      /// Error iicn bir kisim Yapacaz(),
       debugPrint('Veri alınamadı');
     }
   }

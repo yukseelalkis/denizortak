@@ -5,7 +5,7 @@ class _HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(title: const Text('Hava Durumu'), actions: [_Loading()]);
+    return AppBar(title: const Text('Weather App'), actions: [_Loading()]);
   }
 
   @override
